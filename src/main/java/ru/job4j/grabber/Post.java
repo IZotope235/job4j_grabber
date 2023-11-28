@@ -45,4 +45,24 @@ public class Post {
                 +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
 }
