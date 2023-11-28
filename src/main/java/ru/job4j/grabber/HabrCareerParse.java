@@ -18,7 +18,7 @@ public class HabrCareerParse implements Parse {
     private static final String SOURCE_LINK = "https://career.habr.com";
     private static final String PREFIX = "/vacancies?page=";
     private static final String SUFFIX = "&q=Java%20developer&type=all";
-    private static final int PAGE_SCAN_LIMIT = 5;
+    private static final int PAGE_SCAN_LIMIT = 1;
     private final DateTimeParser dateTimeParser;
     private int id = 0;
 
