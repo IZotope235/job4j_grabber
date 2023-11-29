@@ -10,10 +10,10 @@ public class PsqlStore implements Store {
     private static final String CREATE_STATEMENT = "CREATE TABLE IF NOT EXISTS post "
                                                         + "(id serial primary key, "
                                                         + "title text, "
+                                                        + "link text UNIQUE,"
                                                         + "description text, "
-                                                        + "link text UNIQUE, "
                                                         + "created timestamp);";
-    private static final String INSERT_STATEMENT = "INSERT INTO post (title, description, link, created) "
+    private static final String INSERT_STATEMENT = "INSERT INTO post (title, link, description, created) "
                                                     + "VALUES (?, ?, ?, ?)"
                                                     + "ON CONFLICT (link)"
                                                     + "DO NOTHING";
@@ -38,8 +38,8 @@ public class PsqlStore implements Store {
     public void save(Post post) {
         try (PreparedStatement ps = this.cnn.prepareStatement(INSERT_STATEMENT)) {
             ps.setString(1, post.getTitle());
-            ps.setString(2, post.getDescription());
-            ps.setString(3, post.getLink());
+            ps.setString(2, post.getLink());
+            ps.setString(3, post.getDescription());
             ps.setTimestamp(4, Timestamp.valueOf(post.getCreated()));
             ps.execute();
         } catch (Exception e) {
