@@ -19,7 +19,6 @@ public class PsqlStore implements Store {
                                                     + "DO NOTHING";
     private static final String SELECT_STATEMENT = "SELECT * FROM post";
     private static final String FIND_BY_ID_STATEMENT = "SELECT * FROM post WHERE id = ?";
-    private static final String FILE_PROPERTIES = "psql.properties";
 
     public PsqlStore(Properties cfg) {
         try {
